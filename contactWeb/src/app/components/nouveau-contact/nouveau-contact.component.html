@@ -1,0 +1,48 @@
+<div class="container" style="padding-top:30px">
+    <div class="panel panel-default">
+        <div class="panel-heading">Saisie d'un contact</div>
+        <div class="panel-body">
+            <form #f="ngForm" (ngSubmit)="onSaveContact(f.value)">
+                <div class="form-group">
+                    <label class="control-label">Nom</label>
+                    <input #nom="ngModel" class="form-control" type="text" ngModel name="nom" required />
+                    <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert alert-danger">
+                        <div *ngIf="nom.errors.required">Nom est obligatoire</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Prénom</label>
+                    <input #prenom="ngModel" class="form-control" type="text" ngModel name="prenom" required />
+                    <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="alert alert-danger">
+                        <div *ngIf="prenom.errors.required">Prenom est obligatoire</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">email</label>
+                    <input #email="ngModel" class="form-control" type="email" ngModel name="email" required />
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                        <div *ngIf="email.errors.required">Email est obligatoire</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Date Naissance:</label>
+                    <input #dateNaissance="ngModel" class="form-control" type="date" ngModel name="dateNaissance"
+                        required />
+                    <div *ngIf="dateNaissance.invalid && (dateNaissance.dirty || dateNaissance.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="dateNaissance.errors.required">Date de naissance est obligatoire</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Tel:</label>
+                    <input #tel="ngModel" class="form-control" type="text" ngModel name="tel" required />
+                    <div *ngIf="tel.invalid && (tel.dirty || tel.touched)" class="alert alert-danger">
+                        <div *ngIf="tel.errors.required">Numero de téléphone est obligatoire</div>
+                    </div>
+                </div>
+                <button [disabled]="!f.valid" type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+</div>
